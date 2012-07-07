@@ -1,22 +1,23 @@
-/*
-	Notif class
-	Allows to show HTML5 Notifications. 
+/* --------------------------------------------------
+
+	@class: 			Notif class
+	@description: Allows to show HTML5 Notifications. 
+	@author: 			Gotardo Gonz‡lez (contact@gotardo.es)
+	@license: 		ATTENTION: This software comes with no warranty. You may use this library under the terms of either the MIT License.
 	
 	Use:
-	Notif.show({msg: "This is my message"});
-*/
+	<script type="text/javascript">
+		Notif.show({msg: "This is my message"});
+	</script>
+-------------------------------------------------- */
 
 		var Notif = {
 
-			/*
-				Webkit Notification object
-			*/
+			//Webkit Notification object
 			
 			wkNotif							: null,
 			
-			/*
-				Event callbacks
-			*/
+			//View Config. params.
 						
 			icon 								: '',
 			notificationType   	: 'text',
@@ -24,9 +25,11 @@
 			url									: '',		
 			msg									: '',
 			
-			/*
-				Event callbacks
-			*/
+			//Behavior Config. params
+			
+			autoclose						: 5,
+			
+			//Event callbacks
 			
 			ondisplay						:	function (){},
 			onclose							:	function (){},
@@ -44,6 +47,15 @@
 				
 			},
 			
+			
+			/*
+				Check the avaliability of HTML5 notifications
+			*/
+			
+			isAvailable	: function () {
+				return (typeof window.webkitNotifications == "object");
+			},
+			
 			/*
 				Shows the notification (if possible)
 			*/		
@@ -52,7 +64,7 @@
 				
 				this.config(settings);
 				
-				if (!window.webkitNotifications) {
+				if (!this.isAvailable) {
 
 					throw { 
 						name:        			"Notifications error", 
@@ -79,15 +91,16 @@
 					else 
 						this.wkNotif = window.webkitNotifications.createNotification( this.icon, this.title, this.msg);		
 					
-
-	
-					/*
-						Shows the notif
-					*/			
+					
+					// Shows the notif
 					
 					this.wkNotif.show();
 					
-					
+					// Autoclose the notif	
+	
+					if (this.autoclose) setTimeout(function () {
+						Notif.wkNotif.cancel();
+					}, this.autoclose * 1000);
 				}
 				
 				return this;
