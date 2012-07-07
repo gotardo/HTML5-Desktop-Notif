@@ -9,7 +9,7 @@
 		Notif.config({
 			notificationType: "text",
 			icon: "css/img/Alf-48.png",
-			autoclose: 3
+			autoclose: 5
 		});
 	
 	</script>

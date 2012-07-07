@@ -21,6 +21,11 @@ Use
 
 Change Log
 ===================
+
+V0.3
+- Added Debug option. If debug is false, Notif won't throw any exception in case of error.
+- Better control over permission status.
+
 V0.2
 - Add Notif.isAvailable() method to check the availability of webkitNotifications object.
 - Add 'autoclose' configuration param. The notification will cancel in 'autoclose' number of seconds. If 'autoclose' is 0 or false the notification will not be canceled.
