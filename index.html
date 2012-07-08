@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>HTML5DesktopNotif</title>
+
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	
+	
+	<script type="text/javascript" src="js/HTML5DesktopNotif.js"></script>		
+	<script type="text/javascript">
+	
+		Notif.config({
+			notificationType: 	"text",
+			icon: 				"css/img/Alf-48.png",
+			autoclose: 			5,
+			
+			fallback: function () {
+				alert("Your browser doesn't support HTML5 Notifcations, but I still can tell you something: " + this.msg);
+			}
+		});
+	
+	</script>
+</head>
+
+<body>
+
+	<section>
+		<header>
+			<h1>HTML5 Desktop Notifications</h1>
+		</header>
+		<article>
+			<header>
+				<h1>About this library</h1>
+			</header>
+			
+			<p>This class provides a way to easily launch HTML5 Notifications taking advantage of the <a target= "_blank" href ="http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification/">API Specification at Chromium Projects</a>.</p>
+	<button id ="show_button" onclick='javascript:Notif.show({ title: "Warning!", msg: "You have a new notification."});'>Click to see it in action!</button>
+		</article>
+
+		<article>
+			<header>
+				<h1>Use</h1>
+			</header>
+			<pre>
+			
+//Some lines to configure the behavior
+
+Notif.config({
+	notificationType: "text",
+	icon: "css/img/Alf-48.png",
+	autoclose: 3,
+	fallback: function (){
+	/* 
+		Your code for browsers which 
+		doesn't support Webkit Notifications.
+	*/
+	}
+});
+
+//Show notification	
+
+Notif.show({ 
+	title: "Warning!", 
+	msg: "You have a new notification."
+});
+	
+			
+			</pre>
+		</article>
+		<article>
+			<header>
+				<h1>Change log</h1>
+			</header>
+			
+			<h2>v0.4</h2>
+			<ul>
+				<li>Added a fallback function.</li>
+			</ul>
+
+			<h2>v0.3</h2>
+			<ul>
+				<li>Added Debug option. If debug is false, Notif won't throw any exception in case of error.</li>
+				<li>Better control over permission status.</li>
+			</ul>
+			
+			<h2>v0.2</h2>
+			<ul>
+				<li>Add Notif.isAvailable() method to check the availability of webkitNotifications object.</li>
+				<li>Add 'autoclose' configuration param. The notification will cancel in 'autoclose' number of seconds. If 'autoclose' is 0 or false the notification will not be canceled.</li>
+				<li>Update authoring and licenses.</li>
+			</ul>
+			
+			<h2>v0.1</h2>
+			<ul>
+				<li>Just a simple JavaScript class.</li>
+			</ul>
+
+			
+		</article>
+	
+	</section>	
+
+</body>
+</html>

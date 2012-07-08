@@ -1,8 +1,8 @@
 /* --------------------------------------------------
 
-	@class: 			Notif class
-	@description: Allows to show HTML5 Notifications. 
-	@author: 			Gotardo Gonz‡lez (contact@gotardo.es)
+	@class: 		Notif class
+	@description: 	Allows to show HTML5 Notifications. 
+	@author: 		Gotardo Gonz‡lez (contact@gotardo.es)
 	@license: 		ATTENTION: This software comes with no warranty. You may use this library under the terms of either the MIT License.
 	
 	Use:
@@ -16,27 +16,31 @@
 
 			// Webkit Notification object
 			
-			wkNotif							: null,
+			wkNotif				: null,
 			
 			// View Config. params.
 						
-			icon 								: '',
+			icon 				: '',
 			notificationType   	: 'text',
-			title 							: '',
-			url									: '',		
-			msg									: '',
+			title 				: '',
+			url					: '',		
+			msg					: '',
 			
 			// Behavior Config. params
 			
-			autoclose						: 5,
-			debug								: false,
+			autoclose			: 5,
+			debug				: false,
 			
 			// Event callbacks
 
-			ondisplay						:	function (){},
-			onclose							:	function (){},
-			onclick							:	function (){},
-			onerror							:	function (){},		
+			ondisplay			:	function (){},
+			onclose				:	function (){},
+			onclick				:	function (){},
+			onerror				:	function (){},		
+			
+			// Fallback. This function will be called if the browser doesn't suppor HTML5 notifications.
+			
+			fallback			:	function (){},
 			
 			
 			/* ------------------------------------------
@@ -76,6 +80,9 @@
 							level:       			"Show Stopper", 
 							message:     			"Browser doesn't support HTML5 notifcations."
 						}
+					else {
+						this.fallback();
+					}
 				}	
 				//If webkitNotifications object is available
 				else {

@@ -6,14 +6,19 @@ JavaScript class to easily manage HTML5 Desktop Notifications
 Use
 ===================
 
-  <script type="text/javascript" src="js/HTML5DesktopNotif.js"></script>		
+  	<script type="text/javascript" src="js/HTML5DesktopNotif.js"></script>		
   
 	<script type="text/javascript">
 	
 		Notif.config({
 			notificationType: "text",
 			icon: "css/img/Alf-48.png",
-			autoclose: 3
+			autoclose: 3,
+			fallback: function (){
+				/* 
+					Your code for browsers which doesn't support Webkit Notifications.
+				*/
+			}
 		});
 	
 	</script>
@@ -21,6 +26,9 @@ Use
 
 Change Log
 ===================
+
+V0.4
+- Added fallback function
 
 V0.3
 - Added Debug option. If debug is false, Notif won't throw any exception in case of error.
