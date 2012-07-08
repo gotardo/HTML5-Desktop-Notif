@@ -1,8 +1,8 @@
 /* --------------------------------------------------
 
-	@class: 		Notif class
+	@class: 		Notif
 	@description: 	Allows to show HTML5 Notifications. 
-	@author: 		Gotardo Gonz‡lez (contact@gotardo.es)
+	@author: 		Gotardo González. mail: contact@gotardo.es GitHub: https://github.com/gotardo/ Tw: @gotardo 
 	@license: 		ATTENTION: This software comes with no warranty. You may use this library under the terms of either the MIT License.
 	
 	Use:
@@ -36,7 +36,9 @@
 			ondisplay			:	function (){},
 			onclose				:	function (){},
 			onclick				:	function (){},
-			onerror				:	function (){},		
+			onerror				:	function (){
+				if (this.debug) { console.log("Something went wrong..."); }
+			},		
 			
 			// Fallback. This function will be called if the browser doesn't suppor HTML5 notifications.
 			
@@ -72,31 +74,39 @@
 				//Update new settings (if needed)
 				this.config(settings);
 				
+
+				
 				//If webkitNotifications object is not available and we are in debug mode, an exception will be thrown...
 				if (!this.isAvailable()) {
-					if (this.debug)
+					if (this.debug) {
 						throw { 
 							name:        			"Notifications error", 
 							level:       			"Show Stopper", 
 							message:     			"Browser doesn't support HTML5 notifcations."
-						}
+						}						
+					}
+	
 					else {
 						this.fallback();
 					}
 				}	
 				//If webkitNotifications object is available
 				else {
+				
 					
 					//Check for permission to show notifications. Request permission if notifications are not allowed
 					
-					if (window.webkitNotifications.checkPermission() == window.webkitNotifications.PERMISSION_NOT_ALLOWED)
+					if (window.webkitNotifications.checkPermission())
 						window.webkitNotifications.requestPermission();						
 
+					if (window.webkitNotifications.checkPermission() == 2) {
+						console.log("Permission are denied!!" + window.webkitNotifications.checkPermission());
+					}
 					//If permission is allowed, the notification is shown.
 
 					if (window.webkitNotifications.checkPermission() == 0) {
 						//Check for browser notifications support
-						
+												
 						if (this.notificationType == 'html') 
 							this.wkNotif = window.webkitNotifications.createHTMLNotification(this.url);
 						else 
@@ -104,7 +114,7 @@
 						
 						
 						// Shows the notif
-						
+
 						this.wkNotif.show();
 						
 						// Autoclose the notif	

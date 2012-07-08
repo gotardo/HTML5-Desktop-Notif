@@ -71,6 +71,8 @@ article {
     font-size: 1.5em; }
   article h2 {
     font-size: 1.1em; }
+  article p {
+    margin: 1em 0; }
   article ul {
     padding: 0 0 0 1.3em; }
     article ul li {

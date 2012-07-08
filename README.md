@@ -28,15 +28,16 @@ Change Log
 ===================
 
 V0.4
-- Added fallback function
+- Added fallback function.
+- Added some content to the sample page.
 
 V0.3
 - Added Debug option. If debug is false, Notif won't throw any exception in case of error.
 - Better control over permission status.
 
 V0.2
-- Add Notif.isAvailable() method to check the availability of webkitNotifications object.
-- Add 'autoclose' configuration param. The notification will cancel in 'autoclose' number of seconds. If 'autoclose' is 0 or false the notification will not be canceled.
+- Added Notif.isAvailable() method to check the availability of webkitNotifications object.
+- Added 'autoclose' configuration param. The notification will cancel in 'autoclose' number of seconds. If 'autoclose' is 0 or false the notification will not be canceled.
 - Update authoring and licenses.
 
 V0.1

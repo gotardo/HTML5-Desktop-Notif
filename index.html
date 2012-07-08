@@ -15,10 +15,7 @@
 			notificationType: 	"text",
 			icon: 				"css/img/Alf-48.png",
 			autoclose: 			5,
-			
-			fallback: function () {
-				alert("Your browser doesn't support HTML5 Notifcations, but I still can tell you something: " + this.msg);
-			}
+			debug:				true
 		});
 	
 	</script>
@@ -35,9 +32,12 @@
 				<h1>About this library</h1>
 			</header>
 			
-			<p>This class provides a way to easily launch HTML5 Notifications taking advantage of the <a target= "_blank" href ="http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification/">API Specification at Chromium Projects</a>.</p>
+			<p>This class provides an easy way of launching HTML5 Notifications taking advantage of the <a target= "_blank" href ="http://www.chromium.org/developers/design-documents/desktop-notifications/api-specification/">API Specification at Chromium Projects</a>.</p>
+			<p>Additionally, you can use this class with other notification methods in case you want to use it in no compatible browsers (which are most of them, unfortunately)</p>
 	<button id ="show_button" onclick='javascript:Notif.show({ title: "Warning!", msg: "You have a new notification."});'>Click to see it in action!</button>
 		</article>
+
+
 
 		<article>
 			<header>
@@ -69,6 +69,16 @@ Notif.show({
 			
 			</pre>
 		</article>
+			<article>
+			<header>
+				<h1>Clone, fork and download</h1>
+			</header>
+			<p>You can download the latest version of this library from GitHub. Feel free to clone or fork this and send some pull request from time to time</p>
+			<ul>
+				<li><a target="_blank" href="https://github.com/gotardo/HTML5-Desktop-Notif">Download the code</a>
+				<li><a target="_blank" href ="https://github.com/gotardo/HTML5-Desktop-Notif">HTML5 Deskto Notif project on GitHub</a>.</li>
+			</ul>
+		</article>	
 		<article>
 			<header>
 				<h1>Change log</h1>
@@ -77,6 +87,7 @@ Notif.show({
 			<h2>v0.4</h2>
 			<ul>
 				<li>Added a fallback function.</li>
+				<li>Added some documentation.</li>
 			</ul>
 
 			<h2>v0.3</h2>
@@ -87,8 +98,8 @@ Notif.show({
 			
 			<h2>v0.2</h2>
 			<ul>
-				<li>Add Notif.isAvailable() method to check the availability of webkitNotifications object.</li>
-				<li>Add 'autoclose' configuration param. The notification will cancel in 'autoclose' number of seconds. If 'autoclose' is 0 or false the notification will not be canceled.</li>
+				<li>Added Notif.isAvailable() method to check the availability of webkitNotifications object.</li>
+				<li>Added 'autoclose' configuration param. The notification will cancel in 'autoclose' number of seconds. If 'autoclose' is 0 or false the notification will not be canceled.</li>
 				<li>Update authoring and licenses.</li>
 			</ul>
 			
@@ -99,7 +110,18 @@ Notif.show({
 
 			
 		</article>
-	
+		<article>
+			<header>
+				<h1>Author</h1>
+			</header>
+			<p>Gotardo González</p>
+			<ul>
+				<li>Blog: <a target="_blank" href="http://blog.gotardo.es">http://blog.gotardo.es</a></li>
+				<li>Github:	<a target="_blank" href="https://github.com/gotardo/">Gotardo</a></li>
+				<li>Twitter: <a target="_blank" href="https://twitter.com/Gotardo">@gotardo</a></li>
+			</ul>
+		</article>			
+				
 	</section>	
 
 </body>
