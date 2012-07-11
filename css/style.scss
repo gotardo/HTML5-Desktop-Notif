@@ -1,0 +1,83 @@
+@import "reset.scss";
+
+$mainColor: #369;
+$textColor: #333;
+$backgroundColor: #fff;
+
+body {
+	font-family: "Georgia";
+	font-size: 16px;
+	text-align: center;	
+	line-height: 1.2;
+	
+	color:  $textColor;
+	background-color: $backgroundColor;
+}
+
+a {
+	color: $mainColor;
+	text-decoration: none;
+}
+
+pre{
+	font-size: 0.8em;
+	line-height: 1.2;
+	font-family: monospace;
+}
+
+h1, h2, h3, h4 {
+	color: $mainColor;
+}
+
+section header h1 {
+	font-size: 2em;
+	margin: 1.3em 0;
+	color: $mainColor;
+	font-weight: normal;
+}
+
+article {
+	width: 500px;
+	margin: 0 auto 3em auto;
+	
+
+	text-align: left;
+	font-size: 0.9em;
+	line-height: 1.5;
+
+	header {
+		h1 	{	font-size: 1.5em;	}
+	}
+	
+	h2 	{	font-size: 1.1em; 	}
+
+	p {
+		margin: 1em 0;
+	}	
+	
+	ul {
+		padding: 0 0 0 1.3em;
+		li {
+			margin: 1em 0;
+			list-style: circle;
+		}
+	}
+	
+	button {
+		float: right;
+		padding: 5px;
+		background-color: $mainColor;
+		color: $backgroundColor;
+		border:none;
+		border-radius: 5px 20px 20px 5px;
+		margin: 1em 0;
+		
+	}
+	
+	button:hover {
+	
+		box-shadow: 0 0 5px darken($backgroundColor, 30%);
+		
+	}	
+
+}
