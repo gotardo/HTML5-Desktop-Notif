@@ -7,7 +7,8 @@
 
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	
-	
+
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>			
 	<script type="text/javascript" src="js/HTML5DesktopNotif.js"></script>		
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>			
 	<script type="text/javascript">
@@ -20,6 +21,10 @@
 			fallback: function () {
 				$("#notifications").append(this.msg);
 			}
+		});
+		
+		$(document).ready(function () {
+			console.log("JQuery is Running");
 		});
 	
 	</script>
