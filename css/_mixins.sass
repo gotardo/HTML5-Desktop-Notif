@@ -1,0 +1,86 @@
+////////////////////////////////////////////////////////////////////////
+
+	MIXINS!
+	
+////////////////////////////////////////////////////////////////////////
+
+
+
+// CSS3 Transitions
+
+= transition ($property, $time, $effect)
+	-webkit-transition: $property $time $effect
+	-moz-transition: $property $time $effect
+	-o-transition: $property $time $effect
+	transition: $property $time $effect
+
+// CSS3 Box Shadow
+	
+= box-shadow($x, $y, $shadow, $color)
+	box-shadow: $x $y $shadow $color
+	-moz-box-shadow: $x $y $shadow $color
+	-webkit-box-shadow: $x $y $shadow $color
+	-o-box-shadow: $x $y $shadow $color	
+	
+	
+= inset-shadow($x:0, $y:0, $shadow: $u, $color:$kgrey)
+	box-shadow: inset $x $y $shadow $color
+	-moz-box-shadow: inset $x $y $shadow $color
+	-webkit-box-shadow: inset $x $y $shadow $color
+	-o-box-shadow: inset $x $y $shadow $color		
+	
+// CSS3 Text Shadow
+	
+= text-shadow($x, $y, $shadow, $color)
+	text-shadow: $x $y $shadow $color
+	-moz-text-shadow: $x $y $shadow $color
+	-webkit-text-shadow: $x $y $shadow $color	
+	-o-text-shadow: $x $y $shadow $color		
+
+// CSS3 Backgorund gradient
+
+= gradient-bg($color1, $color2, $stop1: 0%, $stop2: 100%)
+	background-color: $color1
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2})
+	background-image: -ms-linear-gradient(top, $color1 $stop1, $color2 $stop2)
+	background-image: -o-linear-gradient(top, $color1 $stop1, $color2 $stop2)			
+	background-image: -moz-linear-gradient(top, $color1 $stop1, $color2 $stop2)
+	background-image: -webkit-linear-gradient(top, $color1 $stop1, $color2 $stop2)
+	
+// Border Radius
+
+= border-radius($rad:$radius)
+	border-radius: $rad
+	-moz-border-radius: $rad
+	-webkit-border-radius: $rad
+	-o-border-radius: $rad
+//	behavior: url($route + "border-radius.htc")
+
+//Text overflow: ellipsis
+
+= ellipsis
+	overflow: hidden !important
+	white-space: nowrap !important	
+	text-overflow: ellipsis
+	-ms-text-overflow: ellipsis	
+	-webkit-text-overflow: ellipsis	
+	-moz-text-overflow: ellipsis	
+	
+//Crossbrowsing RGBA colors with fallback
+= BackgroundRGBa($r, $g, $b, $a, $fallback)
+	background:transparent
+	background-color: $fallback // Fallback background		
+	//filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{rgba($r, $g, $b, $a)}, endColorstr=#{rgba($r, $g, $b, $a)})	
+	background: rgba($r, $g, $b, $a)
+
+//Crossbrowsing opacity
+= opacity($opacity)
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)"
+	opacity: $opacity
+	filter: alpha(opacity=$opacity)
+	-moz-opacity: $opacity
+	-khtml-opacity: $opacity
+	-webkit-opacity: $opacity
+	-moz-opacity: $opacity
+
+	
