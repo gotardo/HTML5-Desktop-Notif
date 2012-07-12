@@ -10,34 +10,33 @@
 
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>			
 	<script type="text/javascript" src="js/HTML5DesktopNotif.js"></script>		
-	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>			
 	<script type="text/javascript">
-	
-		Notif.config({
-			notificationType: 	"text",
-			icon: 							"css/img/Alf-48.png",
-			autoclose: 					5,
-			
-			fallback: function () {
-				$("#notifications").append(this.msg);
-			}
-		});
 		
 		$(document).ready(function () {
-			console.log("JQuery is Running");
+			Notif.config({
+				notificationType: 	"text",
+				icon: 							"css/img/Alf-48.png",
+				autoclose: 					5,
+			
+				fallback: function () {
+
+					$('#notifications ul').append('<li class="notif">' + this.msg + '</li>');
+					
+					$('.notif').click(function () {
+						$(this).fadeOut(1000, function () {
+							$(this).remove();
+						});
+
+					});
+				}
+			});
 		});
 	
 	</script>
 </head>
 
 <body>
-	<div id="notifications">
-		<ul>
-			<li class="notification">
-				Hola
-			</li>
-		</ul>	
-	</div>
+	<div id="notifications"><ul></ul></div>
 	<section>
 		<header>
 			<h1>HTML5 Desktop Notifications</h1>
