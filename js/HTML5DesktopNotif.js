@@ -18,6 +18,8 @@
 			
 			wkNotif				: null,
 			
+			id					: null,
+			
 			// View Config. params.
 						
 			icon 				: '',
@@ -54,9 +56,38 @@
 				for (option in settings)
 					this[option] = settings[option];
 				
+				return this;
+			},
+
+
+			/* ------------------------------------------
+				Generate an id for the notif
+			------------------------------------------ */
+						
+			setID	: function () {
+				
+				var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+				
+				var key = '';
+
+				for (var i=0; i< 4; i++) {
+					var rnum = Math.floor(Math.random() * chars.length);
+					key += chars.substring(rnum,rnum+1);
+				}			
+				
+				this.id = key;
+				
+				return this.id;
+				
 			},
 			
 			
+			/* ------------------------------------------
+				Get the id for the notif
+			------------------------------------------ */
+
+			getID	: function () { return this.id; },			
+						
 			/* ------------------------------------------
 				Check the avaliability of HTML5 notifications
 			------------------------------------------ */
