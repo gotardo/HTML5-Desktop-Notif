@@ -24,7 +24,7 @@
 					$('#HTML5-DN ul').append('<li id="' + newId + '" class="notif">' + this.msg + '</li>');
 					
 					$('.notif').click(function () {
-						$(this).fadeOut(1000, function () {
+						$(this).slideUp(1000, function () {
 							$(this).remove();
 						});
 					});
