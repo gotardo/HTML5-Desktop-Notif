@@ -7,40 +7,44 @@
 
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	
-
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>			
 	<script type="text/javascript" src="js/HTML5DesktopNotif.js"></script>		
 	<script type="text/javascript">
 		
 		$(document).ready(function () {
+		
+			$('body').prepend('<div id="HTML5-DN"><ul></ul></div>');
 			Notif.config({
 				notificationType: 	"text",
-				icon: 							"css/img/Alf-48.png",
-				autoclose: 					5,
+				icon: 				"css/img/Alf-48.png",
+				autoclose: 			5,
 			
 				fallback: function () {
-
-					$('#notifications ul').append('<li class="notif">' + this.msg + '</li>');
+					var newId = this.setID();
+					$('#HTML5-DN ul').append('<li id="' + newId + '" class="notif">' + this.msg + '</li>');
 					
 					$('.notif').click(function () {
 						$(this).fadeOut(1000, function () {
 							$(this).remove();
 						});
-
 					});
+											
+					if (this.autoclose) {
+						setTimeout(function () {
+							$( "#" + newId ).slideUp(1000, function () {
+								$( "#" + newId ).remove();
+							});
+						
+						}, this.autoclose * 1000 );
+					}
 				}
 			});
 		});
-		
-		$(document).ready(function () {
-			console.log("JQuery is Running");
-		});
-	
+			
 	</script>
 </head>
 
 <body>
-	<div id="notifications"><ul></ul></div>
 	<section>
 		<header>
 			<h1>HTML5 Desktop Notifications</h1>
